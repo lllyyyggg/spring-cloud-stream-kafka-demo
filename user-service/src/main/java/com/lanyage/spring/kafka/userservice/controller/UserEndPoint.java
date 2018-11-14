@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class UserController {
+public class UserEndPoint {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserEndPoint.class);
 
     @Autowired
     private UserService userService;
