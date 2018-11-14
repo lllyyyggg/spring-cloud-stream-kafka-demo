@@ -29,15 +29,6 @@ public class UserService {
         return this.users;
     }
 
-//    public User findOne(Integer itemCode) {
-//        for (User user : this.users) {
-//            if(user.getId() == itemCode) {
-//                return user;
-//            }
-//        }
-//        return null;
-//    }
-
     public User save(User userDTO) {
         for (User user : this.users) {
             if (user.getId() == userDTO.getId()) {
@@ -51,10 +42,12 @@ public class UserService {
     }
 
     private void sendMsg(String maUpdate, Integer id) {
+
         UserMessage userMessage = new UserMessage(maUpdate, id);
+
         logger.info("==> 发送商品消息:{} <==", userMessage);
-        //发送消息
-        this.source.output().send(MessageBuilder.withPayload(userMessage).build());
+
+        this.source.output().send(MessageBuilder.withPayload(userMessage).build()); //发送消息
     }
 
 
